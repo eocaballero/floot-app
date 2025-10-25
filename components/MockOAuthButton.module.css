@@ -1,0 +1,39 @@
+.oauthButton {
+  width: 100%;
+  justify-content: center;
+  gap: var(--spacing-3);
+  font-weight: 600;
+  border-width: 1px;
+  background-color: var(--surface);
+  color: var(--surface-foreground);
+}
+
+.oauthButton:hover {
+  background-color: var(--muted);
+}
+
+.googleButton {
+  border-color: var(--border);
+}
+
+.facebookButton {
+  background-color: #1877f2;
+  color: white;
+  border-color: #1877f2;
+}
+
+.facebookButton:hover {
+  background-color: color-mix(in srgb, #1877f2, black 10%);
+  border-color: color-mix(in srgb, #1877f2, black 10%);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-6);
+}
+
+.submitButton {
+  width: 100%;
+}

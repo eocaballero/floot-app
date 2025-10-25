@@ -1,0 +1,354 @@
+.pageContainer {
+  padding: var(--spacing-4);
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.balanceCard {
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.balanceCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--primary) 10%, transparent) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.balanceLabel {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  margin-bottom: var(--spacing-2);
+}
+
+.balanceAmount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  font-family: var(--font-family-heading);
+  margin-bottom: var(--spacing-6);
+}
+
+.balanceAmountSkeleton {
+  width: 60%;
+  height: 2.5rem;
+  margin: 0 auto var(--spacing-6) auto;
+  border-radius: var(--radius);
+}
+
+.loadBalanceButton {
+  width: 100%;
+}
+
+.loadBalanceSection {
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-md);
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-4);
+  text-align: center;
+}
+
+.loadForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.quickAmounts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-3);
+}
+
+.quickAmounts > button {
+  width: 100%;
+}
+
+.amountInput {
+  text-align: center;
+  font-size: 1.125rem;
+}
+
+.errorMessage {
+  color: var(--error);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.submitButton {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.submitButton:hover {
+  background-color: color-mix(in srgb, var(--secondary), black 10%);
+}
+
+.transactionsSection {
+  margin-top: var(--spacing-4);
+}
+
+.transactionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.transactionItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-3);
+  background-color: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+}
+
+.transactionIcon {
+  flex-shrink: 0;
+}
+
+.transactionIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.depositIcon, .refundIcon {
+  color: var(--success);
+}
+
+.purchaseIcon {
+  color: var(--error);
+}
+
+.transactionDetails {
+  flex-grow: 1;
+}
+
+.transactionDescription {
+  display: block;
+  font-weight: 500;
+  color: var(--surface-foreground);
+}
+
+.transactionDate {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.transactionRight {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.transactionAmount {
+  font-weight: 600;
+  font-family: var(--font-family-monospace);
+}
+
+.detailsButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background-color: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: background-color var(--animation-duration-fast) ease,
+    color var(--animation-duration-fast) ease;
+}
+
+.detailsButton:hover {
+  background-color: var(--muted);
+  color: var(--surface-foreground);
+}
+
+.detailsButton:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.detailsIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.positive {
+  color: var(--success);
+}
+
+.negative {
+  color: var(--error);
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--muted-foreground);
+  padding: var(--spacing-8) 0;
+}
+
+/* Skeleton Styles */
+.transactionSkeleton {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-3);
+}
+
+.skeletonIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+}
+
+.skeletonDetails {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.skeletonText {
+  width: 60%;
+  height: 1rem;
+}
+
+.skeletonSubtext {
+  width: 80%;
+  height: 0.75rem;
+}
+
+.skeletonAmount {
+  width: 25%;
+  height: 1.25rem;
+}
+
+/* Order Dialog Styles */
+.orderDialogContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-2);
+}
+
+.orderItems {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.orderItemsTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--surface-foreground);
+  margin: 0;
+}
+
+.orderItemsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.orderItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-3);
+  background-color: var(--muted);
+  border-radius: var(--radius);
+}
+
+.orderItemDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.orderItemName {
+  font-weight: 500;
+  color: var(--surface-foreground);
+}
+
+.orderItemStand {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.orderItemPricing {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  text-align: right;
+}
+
+.orderItemQuantity {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  font-family: var(--font-family-monospace);
+}
+
+.orderItemPrice {
+  font-weight: 600;
+  color: var(--surface-foreground);
+  font-family: var(--font-family-monospace);
+}
+
+.orderTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-4);
+  background-color: var(--muted);
+  border-radius: var(--radius);
+  border-top: 2px solid var(--border);
+}
+
+.orderTotalLabel {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--surface-foreground);
+}
+
+.orderTotalAmount {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--error);
+  font-family: var(--font-family-monospace);
+}
