@@ -1,0 +1,65 @@
+.header {
+  background-color: color-mix(in srgb, var(--surface) 85%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav-sticky);
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-3) var(--spacing-6);
+  height: 4.5rem;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--foreground);
+  margin-right: var(--spacing-8);
+}
+
+.logo {
+  height: 2rem;
+  border-radius: var(--radius);
+}
+
+.avatarTrigger {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  outline: none;
+}
+
+.avatarTrigger:focus-visible {
+  box-shadow: var(--shadow-focus);
+  border-radius: var(--radius-full);
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  padding: var(--spacing-1) 0;
+}
+
+.userName {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--popup-foreground);
+}
+
+.userEmail {
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+}

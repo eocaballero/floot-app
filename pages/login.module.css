@@ -1,92 +1,96 @@
-.pageContainer {
+.container {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
+  width: 100%;
   background-color: var(--background);
-  color: var(--foreground);
+  padding: var(--spacing-4);
   font-family: var(--font-family-base);
 }
 
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: var(--spacing-4) var(--spacing-6);
-  background-color: #f5f0e8;
-  box-shadow: var(--shadow);
-  position: sticky;
+.loginCard {
+  position: relative;
+  background-color: var(--surface);
+  padding: var(--spacing-12) var(--spacing-8);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.loadingOverlay {
+  position: absolute;
   top: 0;
-  z-index: var(--z-nav);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-content);
+}
+
+:global(.dark) .loadingOverlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-6);
+  color: var(--primary);
+}
+
+.logoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-2);
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-2);
-  font-family: var(--font-family-heading);
-  font-weight: 600;
-  font-size: 1.25rem;
-}
-
-.logoImage {
-  height: 40px;
-  width: auto;
-  object-fit: contain;
-}
-
-.mainContent {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-8) var(--spacing-4);
-}
-
-.loginCard {
+  display: block;
+  max-width: 200px;
+  height: auto;
   width: 100%;
-  max-width: 400px;
-  background-color: var(--surface);
-  padding: var(--spacing-8);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  text-align: center;
+}
+
+.brandName {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0;
 }
 
 .title {
   font-family: var(--font-family-heading);
   font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: var(--spacing-2);
-  color: var(--surface-foreground);
+  font-weight: 800;
+  color: var(--foreground);
+  margin: 0 0 var(--spacing-2);
 }
 
 .subtitle {
   color: var(--muted-foreground);
-  margin-bottom: var(--spacing-8);
+  margin: 0 0 var(--spacing-8);
   font-size: 1rem;
 }
 
-.buttonContainer {
+.googleButtonWrapper {
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-4);
-  margin-bottom: var(--spacing-6);
+  justify-content: center;
 }
 
-.backLink {
-  display: inline-block;
-  font-size: 0.9375rem;
-  color: var(--muted-foreground);
-  text-decoration: none;
-  transition: color var(--animation-duration-fast) ease;
-  font-family: var(--font-family-base);
-}
-
-.backLink:hover {
-  color: var(--primary);
-  text-decoration: underline;
-}
-
-.backLink:active {
-  color: color-mix(in srgb, var(--primary), black 10%);
+.alternativeAction {
+  margin-top: var(--spacing-6);
+  display: flex;
+  justify-content: center;
 }

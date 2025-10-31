@@ -1,0 +1,243 @@
+.pageContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-8) var(--spacing-6);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-12);
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: var(--spacing-2);
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Layout for items and summary */
+.contentLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-8);
+}
+
+@media (min-width: 1024px) {
+  .contentLayout {
+    grid-template-columns: 2fr 1fr;
+    align-items: flex-start;
+  }
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+/* Cart Item Styling */
+.cartItem {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "details price"
+    "controls remove";
+  gap: var(--spacing-4);
+  padding: var(--spacing-4);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  align-items: center;
+}
+
+.itemDetails {
+  grid-area: details;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.itemIcon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--muted);
+  color: var(--secondary);
+  border-radius: var(--radius);
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemName {
+  font-weight: 600;
+  color: var(--surface-foreground);
+}
+
+.itemStand {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.itemControls {
+  grid-area: controls;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  justify-self: start;
+}
+
+.itemQuantity {
+  font-weight: 600;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.itemPrice {
+  grid-area: price;
+  font-weight: 600;
+  font-size: 1.125rem;
+  text-align: right;
+}
+
+.itemRemove {
+  grid-area: remove;
+  justify-self: end;
+}
+
+@media (min-width: 768px) {
+  .cartItem {
+    grid-template-columns: 2fr 1fr auto auto;
+    grid-template-areas: "details controls price remove";
+    gap: var(--spacing-6);
+  }
+
+  .itemControls {
+    justify-self: center;
+  }
+}
+
+/* Summary Card */
+.summaryContainer {
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .summaryContainer {
+    position: sticky;
+    top: var(--spacing-8);
+  }
+}
+
+.summaryCard {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.summaryTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.summaryDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.balanceLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.insufficientBalance {
+  color: var(--error);
+  font-weight: 500;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted-foreground);
+}
+
+.totalRow {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  padding-top: var(--spacing-3);
+  border-top: 1px solid var(--border);
+}
+
+.confirmButton {
+  width: 100%;
+}
+
+.rechargeButton {
+  width: 100%;
+}
+
+/* State Messages (Error, Empty) */
+.stateMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-16) var(--spacing-6);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  min-height: 400px;
+  gap: var(--spacing-4);
+}
+
+.stateMessage h2 {
+  font-family: var(--font-family-heading);
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+.stateMessage p {
+  color: var(--muted-foreground);
+  max-width: 400px;
+  margin: 0;
+}
+
+.errorIcon {
+  color: var(--error);
+}
+
+/* Success Dialog Styles */
+.successIconContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-4);
+}
+
+.successIcon {
+  color: var(--success);
+}

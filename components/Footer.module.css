@@ -1,0 +1,47 @@
+.footer {
+  background-color: var(--sidebar);
+  color: var(--sidebar-foreground);
+  padding: var(--spacing-4) 0 6.25rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+  display: flex;
+  justify-content: center;
+}
+
+.developer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.linkTitle {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.logoLink {
+  display: block;
+  transition: opacity var(--animation-duration-fast) ease;
+}
+
+.logoLink:hover {
+  opacity: 0.8;
+}
+
+.logo {
+  height: 2.25rem;
+  width: auto;
+  display: block;
+}
+
+.contactInfo {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin: 0;
+}

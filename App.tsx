@@ -1,20 +1,20 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { GlobalContextProviders } from "./components/_globalContextProviders";
-import Page_0 from "./pages/cart.tsx";
-import PageLayout_0 from "./pages/cart.pageLayout.tsx";
-import Page_1 from "./pages/my-qr.tsx";
-import PageLayout_1 from "./pages/my-qr.pageLayout.tsx";
-import Page_2 from "./pages/store.tsx";
-import PageLayout_2 from "./pages/store.pageLayout.tsx";
-import Page_3 from "./pages/_index.tsx";
-import PageLayout_3 from "./pages/_index.pageLayout.tsx";
-import Page_4 from "./pages/wallet.tsx";
-import PageLayout_4 from "./pages/wallet.pageLayout.tsx";
-import Page_5 from "./pages/my-products.tsx";
-import PageLayout_5 from "./pages/my-products.pageLayout.tsx";
-import Page_6 from "./pages/login.tsx";
-import PageLayout_6 from "./pages/login.pageLayout.tsx";
+import Page_0 from "./pages/qr.tsx";
+import PageLayout_0 from "./pages/qr.pageLayout.tsx";
+import Page_1 from "./pages/login.tsx";
+import PageLayout_1 from "./pages/login.pageLayout.tsx";
+import Page_2 from "./pages/_index.tsx";
+import PageLayout_2 from "./pages/_index.pageLayout.tsx";
+import Page_3 from "./pages/tienda.tsx";
+import PageLayout_3 from "./pages/tienda.pageLayout.tsx";
+import Page_4 from "./pages/carrito.tsx";
+import PageLayout_4 from "./pages/carrito.pageLayout.tsx";
+import Page_5 from "./pages/compras.tsx";
+import PageLayout_5 from "./pages/compras.pageLayout.tsx";
+import Page_6 from "./pages/billetera.tsx";
+import PageLayout_6 from "./pages/billetera.pageLayout.tsx";
 
 if (!window.requestIdleCallback) {
   window.requestIdleCallback = (cb) => {
@@ -24,15 +24,15 @@ if (!window.requestIdleCallback) {
 
 import "./base.css";
 
-const fileNameToRoute = new Map([["./pages/cart.tsx","/cart"],["./pages/my-qr.tsx","/my-qr"],["./pages/store.tsx","/store"],["./pages/_index.tsx","/"],["./pages/wallet.tsx","/wallet"],["./pages/my-products.tsx","/my-products"],["./pages/login.tsx","/login"]]);
+const fileNameToRoute = new Map([["./pages/qr.tsx","/qr"],["./pages/login.tsx","/login"],["./pages/_index.tsx","/"],["./pages/tienda.tsx","/tienda"],["./pages/carrito.tsx","/carrito"],["./pages/compras.tsx","/compras"],["./pages/billetera.tsx","/billetera"]]);
 const fileNameToComponent = new Map([
-    ["./pages/cart.tsx", Page_0],
-["./pages/my-qr.tsx", Page_1],
-["./pages/store.tsx", Page_2],
-["./pages/_index.tsx", Page_3],
-["./pages/wallet.tsx", Page_4],
-["./pages/my-products.tsx", Page_5],
-["./pages/login.tsx", Page_6],
+    ["./pages/qr.tsx", Page_0],
+["./pages/login.tsx", Page_1],
+["./pages/_index.tsx", Page_2],
+["./pages/tienda.tsx", Page_3],
+["./pages/carrito.tsx", Page_4],
+["./pages/compras.tsx", Page_5],
+["./pages/billetera.tsx", Page_6],
   ]);
 
 function makePageRoute(filename: string) {
@@ -113,13 +113,13 @@ export function App() {
       <GlobalContextProviders>
         <Routes>
           {toElement({ trie: buildLayoutTrie({
-"./pages/cart.tsx": PageLayout_0,
-"./pages/my-qr.tsx": PageLayout_1,
-"./pages/store.tsx": PageLayout_2,
-"./pages/_index.tsx": PageLayout_3,
-"./pages/wallet.tsx": PageLayout_4,
-"./pages/my-products.tsx": PageLayout_5,
-"./pages/login.tsx": PageLayout_6,
+"./pages/qr.tsx": PageLayout_0,
+"./pages/login.tsx": PageLayout_1,
+"./pages/_index.tsx": PageLayout_2,
+"./pages/tienda.tsx": PageLayout_3,
+"./pages/carrito.tsx": PageLayout_4,
+"./pages/compras.tsx": PageLayout_5,
+"./pages/billetera.tsx": PageLayout_6,
 }), fileNameToRoute, makePageRoute })} 
           <Route path="*" element={<NotFound />} />
         </Routes>

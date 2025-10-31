@@ -1,0 +1,134 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 160px); /* Adjust based on header/footer height */
+  padding: var(--spacing-8) var(--spacing-4);
+  background-color: var(--background);
+}
+
+.card {
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-8);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-6);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--surface-foreground);
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--muted-foreground);
+  margin: 0;
+  max-width: 300px;
+}
+
+.qrContainer {
+  padding: var(--spacing-4);
+  background-color: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 2px 4px 0 hsl(220 10% 20% / 0.05);
+}
+
+.qrPlaceholder {
+  width: 256px;
+  height: 256px;
+  background-color: var(--muted);
+  border-radius: var(--radius-sm);
+}
+
+.codeDisplay {
+  font-family: var(--font-family-monospace);
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--primary);
+  background-color: var(--muted);
+  padding: var(--spacing-3) var(--spacing-4);
+  border-radius: var(--radius);
+  user-select: all;
+}
+
+.errorState {
+  width: 256px;
+  height: 256px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--muted);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-4);
+}
+
+.errorMessage {
+  color: var(--error);
+  text-align: center;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.timerIcon {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: var(--spacing-6) var(--spacing-4);
+    gap: var(--spacing-4);
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+  }
+
+  .qrContainer {
+    transform: scale(0.8);
+    padding: var(--spacing-2);
+  }
+
+  .codeDisplay {
+    font-size: 2rem;
+  }
+}

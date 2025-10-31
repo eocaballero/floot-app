@@ -1,0 +1,233 @@
+.pageContainer {
+  --brand-green: #7cb342;
+  --brand-gold: #d4a024;
+  --brand-red: #e53935;
+  --brand-blue: #29b6f6;
+  
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-8) var(--spacing-6);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-8);
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: var(--spacing-2);
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Filters Bar */
+.filtersBar {
+  display: flex;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-8);
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .filtersBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.searchInputWrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: var(--spacing-3);
+  color: var(--muted-foreground);
+  pointer-events: none;
+}
+
+.searchInput {
+  padding-left: calc(var(--spacing-3) * 2 + 18px);
+}
+
+.filterButton {
+  position: relative;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .filterButton {
+    width: 100%;
+  }
+}
+
+.filterDialog {
+  max-width: 90vw;
+  width: 400px;
+}
+
+.filterDialogContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  padding-top: var(--spacing-2);
+}
+
+.filterDialogButton {
+  width: 100%;
+  justify-content: flex-start;
+  height: 3rem;
+  font-size: 1rem;
+}
+
+.mainContent {
+  width: 100%;
+}
+
+/* Products Grid */
+.productsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+}
+
+@media (min-width: 640px) {
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .productsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Product Card */
+.productCard {
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform var(--animation-duration-normal) ease, box-shadow var(--animation-duration-normal) ease;
+}
+
+.productCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.cardIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--muted);
+  color: var(--brand-gold);
+  margin-bottom: var(--spacing-4);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.productName {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--surface-foreground);
+}
+
+.productPrice {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--brand-green);
+  margin: var(--spacing-1) 0;
+}
+
+.standName {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  background-color: var(--muted);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--spacing-4);
+}
+
+/* Cart Controls */
+.cartControls {
+  width: 100%;
+  margin-top: var(--spacing-2);
+}
+
+.addToCartButton {
+  width: 100%;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-3);
+}
+
+.quantityDisplay {
+  font-family: var(--font-family-base);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  min-width: 2rem;
+  text-align: center;
+}
+
+/* State Messages (Error, Empty) */
+.stateMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-16) var(--spacing-6);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  min-height: 300px;
+}
+
+.stateMessage h2 {
+  font-family: var(--font-family-heading);
+  font-size: 1.75rem;
+  margin-top: var(--spacing-4);
+  margin-bottom: var(--spacing-2);
+}
+
+.stateMessage p {
+  color: var(--muted-foreground);
+  max-width: 400px;
+}
+
+.errorIcon {
+  color: var(--error);
+}
