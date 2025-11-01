@@ -61,6 +61,17 @@ export async function fetchWithAuth(
       console.error("Failed to save redirect path to sessionStorage:", error);
     }
 
+    // Clear user data from localStorage to immediately sync client-side auth state
+    // with the server's 401 response. This prevents redirect loops by ensuring
+    // isAuthenticated becomes false before any components can re-render and make
+    // additional authenticated requests.
+    try {
+      localStorage.removeItem("auth_user");
+      console.log("Cleared user data from localStorage due to 401.");
+    } catch (error) {
+      console.error("Failed to clear user data from localStorage:", error);
+    }
+
     // Dispatch a custom event to notify the app that the session has expired.
     // This event will be caught by the global context provider which will handle
     // navigation using React Router (which is allowed in Floot's iframe).

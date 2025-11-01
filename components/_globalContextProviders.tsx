@@ -6,7 +6,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { TooltipProvider } from "./Tooltip";
 import { SonnerToaster } from "./SonnerToaster";
 import { ScrollToHashElement } from "./ScrollToHashElement";
-import { AuthProvider } from "../helpers/useAuth";
+import { AuthProvider, useAuth } from "../helpers/useAuth";
 import { GOOGLE_CLIENT_ID } from "../helpers/googleAuthConfig";
 
 const queryClient = new QueryClient({
@@ -23,10 +23,14 @@ const queryClient = new QueryClient({
  */
 const SessionExpirationHandler = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
+  const { clearUser } = useAuth();
 
   useEffect(() => {
     const handleSessionExpired = () => {
-      console.log("Session expired event received. Navigating to login.");
+      console.log("Session expired event received. Clearing auth state and navigating to login.");
+      // Clear the user state in React context immediately
+      // (localStorage was already cleared by fetchWithAuth)
+      clearUser();
       navigate("/login");
     };
 
@@ -36,7 +40,7 @@ const SessionExpirationHandler = ({ children }: { children: ReactNode }) => {
     return () => {
       window.removeEventListener("session-expired", handleSessionExpired);
     };
-  }, [navigate]);
+  }, [navigate, clearUser]);
 
   return <>{children}</>;
 };

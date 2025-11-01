@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useCallback } from "react";
 import { fetchWithAuth } from "./fetchWithAuth";
+import { useAuth } from "./useAuth";
 
 const API_BASE_URL =
   "https://patronales-minimalapi-b6hygpfegxb4a8ba.brazilsouth-01.azurewebsites.net";
@@ -67,11 +68,13 @@ const CART_QUERY_KEY = ["cart"];
 
 /**
  * A React Query hook for fetching the user's cart items.
+ * @param enabled - Optional parameter to control whether the query should run. Defaults to true.
  */
-export const useCartItems = () => {
+export const useCartItems = (enabled: boolean = true) => {
   return useQuery<CartItem[], Error>({
     queryKey: CART_QUERY_KEY,
     queryFn: fetchCartItems,
+    enabled,
   });
 };
 
@@ -145,7 +148,8 @@ export const useUpdateCartItem = () => {
  * Provides data, mutation status, and convenient helper functions.
  */
 export const useCart = () => {
-  const { data: cartItems = [], ...query } = useCartItems();
+  const { isAuthenticated } = useAuth();
+  const { data: cartItems = [], ...query } = useCartItems(isAuthenticated);
   const { mutate, ...mutation } = useUpdateCartItem();
 
   /**

@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className={styles.developer}>
                     <h4 className={styles.linkTitle}>Desarrollado y mantenido por</h4>
           <a 
-            href="http://pixelbytes.com.ar"
+            href="http://www.pixelbytes.com.ar" 
             target="_blank" 
             rel="noopener noreferrer"
             className={styles.logoLink}

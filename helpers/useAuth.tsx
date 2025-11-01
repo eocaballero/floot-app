@@ -21,6 +21,7 @@ interface AuthContextValue {
   user: AuthUser | null;
   setUser: (userData: AuthUser) => void;
   logout: () => Promise<void>;
+  clearUser: () => void;
   getInitials: () => string;
 }
 
@@ -64,6 +65,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     } catch (error) {
       console.error("Failed to save user to localStorage:", error);
     }
+  }, []);
+
+  /**
+   * Clears the user data from both state and localStorage.
+   * This is used when we know the session is already invalid (e.g., after a 401 response)
+   * and don't need to make a backend call or navigate.
+   */
+  const clearUser = useCallback(() => {
+    setUserState(null);
+    localStorage.removeItem(USER_STORAGE_KEY);
+    console.log("User data cleared from state and localStorage.");
   }, []);
 
   /**
@@ -126,6 +138,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     user,
     setUser,
     logout,
+    clearUser,
     getInitials,
   };
 
